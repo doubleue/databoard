@@ -1,7 +1,19 @@
 import type { AppProps } from "next/app";
+import Head from "next/head";
 
-function _App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+import GlobalStyle from "../styles/GlobalStyle";
+
+function _app({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>DataBoard</title>
+      </Head>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default _App;
+export default _app;
