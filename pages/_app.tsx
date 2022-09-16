@@ -8,7 +8,7 @@ function _app({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>socbol</title>
+        <title>DataBoard</title>
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />
