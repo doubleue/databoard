@@ -1,6 +1,13 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import { Body, TitleText, TitleWrapper } from "./style";
+import SideBar from "../../SideBar";
+import {
+  Body,
+  DashboardWrapper,
+  SideBarWrapper,
+  TitleText,
+  TitleWrapper,
+} from "./style";
 
 interface MainLayoutProps {
   title?: string;
@@ -19,12 +26,17 @@ export default function MainLayout({
         <title>{seoTitle} | DataBoard</title>
       </Head>
       <Body>
-        {title ? (
-          <TitleWrapper>
-            <TitleText>{title}</TitleText>
-          </TitleWrapper>
-        ) : null}
-        {children}
+        <SideBarWrapper>
+          <SideBar />
+        </SideBarWrapper>
+        <DashboardWrapper>
+          {title ? (
+            <TitleWrapper>
+              <TitleText>{title}</TitleText>
+            </TitleWrapper>
+          ) : null}
+          {children}
+        </DashboardWrapper>
       </Body>
     </>
   );
