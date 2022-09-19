@@ -10,11 +10,21 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
     font-display: fallback;
+    height: 100%;
   }
 
   body{
     box-sizing: border-box;
+    height: 100%;
   }
+
+  #__next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
   button {
     background: none;
