@@ -23,7 +23,7 @@ export default function MainLayout({
   return (
     <>
       <Head>
-        <title>{seoTitle} | DataBoard</title>
+        <title>{`${seoTitle} | DataBoard`}</title>
       </Head>
       <Body>
         <SideBarWrapper>

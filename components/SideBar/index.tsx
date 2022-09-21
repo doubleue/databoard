@@ -1,17 +1,19 @@
-import { ISideBarItem } from "../../types/side-bar";
+import useSWR from "swr";
+
+import { IMenu, ISideBarItem } from "../../types/side-bar";
 import SideBarItem from "./SideBarItem";
 import { Wrapper } from "./style";
 
-export interface SideBarProps {}
+export interface SideBarProps {
+  menus?: ISideBarItem[];
+}
 
-export default function SideBar({}: SideBarProps) {
-  const menus: ISideBarItem[] = [
-    { id: "1", title: "메뉴 1" },
-    { id: "2", title: "Menu 2" },
-    { id: "3", title: "메뉴 3" },
-    { id: "4", title: "Menu 4" },
-  ];
+const fetcher = (url: RequestInfo | URL) =>
+  fetch(url).then((res) => res.json());
 
+export default function SideBar({ menus }: SideBarProps) {
+  const { data, error } = useSWR<IMenu>("/api/sidebar", fetcher);
+  menus = data?.menus;
   return menus ? (
     <Wrapper>
       {menus.map((item) => (
