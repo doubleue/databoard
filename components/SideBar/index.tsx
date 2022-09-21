@@ -12,7 +12,7 @@ const fetcher = (url: RequestInfo | URL) =>
   fetch(url).then((res) => res.json());
 
 export default function SideBar({ menus }: SideBarProps) {
-  const { data, error } = useSWR<IMenu>("/api/dashboard", fetcher);
+  const { data, error } = useSWR<IMenu>("/api/sidebar", fetcher);
   menus = data?.menus;
   return menus ? (
     <Wrapper>
