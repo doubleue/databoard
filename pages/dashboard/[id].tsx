@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
+import DnDTest from "../../components/DnDTest";
 import MainLayout from "../../components/layout/MainLayout";
 import { ISideBarItem } from "../../types/side-bar";
 
@@ -8,6 +9,7 @@ const Dashboard: NextPage<any> = ({ id, title }: DashboardProps) => {
   return (
     <MainLayout title={title} seoTitle={title}>
       {title}
+      <DnDTest />
     </MainLayout>
   );
 };
