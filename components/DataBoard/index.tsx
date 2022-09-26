@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
-import { IDataBoard } from "../../types/databoard";
+import { IDataBoard, IDataBoardElement } from "../../types/databoard";
 import { Wrapper } from "./style";
 
 const Element = dynamic(() => import("./Element"), { ssr: false });
@@ -17,7 +17,7 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
 interface DataBoardProps extends IDataBoard {}
 
 export default function DataBoard({ elements }: DataBoardProps) {
-  const [items, setItems] = useState(elements);
+  const [items, setItems] = useState<IDataBoardElement[]>(elements);
 
   useEffect(() => {
     setItems(elements);
