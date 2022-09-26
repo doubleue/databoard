@@ -1,6 +1,11 @@
 import { GetServerSideProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import MainLayout from "../../components/layout/MainLayout";
 import { ISideBarItem } from "../../types/side-bar";
+
+const DataBoard = dynamic(() => import("../../components/DataBoard"), {
+  ssr: false,
+});
 
 interface DashboardProps extends ISideBarItem {}
 
@@ -8,6 +13,7 @@ const Dashboard: NextPage<any> = ({ id, title }: DashboardProps) => {
   return (
     <MainLayout title={title} seoTitle={title}>
       {title}
+      <DataBoard />
     </MainLayout>
   );
 };
