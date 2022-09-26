@@ -9,11 +9,11 @@ const DataBoard = dynamic(() => import("../../components/DataBoard"), {
 
 interface DashboardProps extends ISideBarItem {}
 
-const Dashboard: NextPage<any> = ({ id, title }: DashboardProps) => {
+const Dashboard: NextPage<any> = ({ id, title, databoard }: DashboardProps) => {
   return (
     <MainLayout title={title} seoTitle={title}>
       {title}
-      <DataBoard />
+      <DataBoard elements={databoard.elements} />
     </MainLayout>
   );
 };
