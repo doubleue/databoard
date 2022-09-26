@@ -1,8 +1,50 @@
 {
   "menus": [
-    { "id": "9e1dee8d", "title": "메뉴 1" },
-    { "id": "5cc9d757", "title": "Menu 2" },
-    { "id": "056d1c43", "title": "메뉴 3" },
-    { "id": "6a04f4fd", "title": "Menu 4" }
+    {
+      "id": "9e1dee8d",
+      "title": "메뉴1",
+      "databoard": {
+        "elements": [
+          { "id": "1", "text": "메뉴1-test1" },
+          { "id": "2", "text": "메뉴1-test2" },
+          { "id": "3", "text": "메뉴1-test3" }
+        ]
+      }
+    },
+    {
+      "id": "5cc9d757",
+      "title": "Menu2",
+      "databoard": {
+        "elements": [
+          { "id": "1", "text": "Menu2-test1" },
+          { "id": "2", "text": "Menu2-test2" },
+          { "id": "3", "text": "Menu2-test3" },
+          { "id": "4", "text": "Menu2-test4" }
+        ]
+      }
+    },
+    {
+      "id": "056d1c43",
+      "title": "메뉴3",
+      "databoard": {
+        "elements": [
+          { "id": "1", "text": "메뉴3-test1" },
+          { "id": "2", "text": "메뉴3-test2" }
+        ]
+      }
+    },
+    {
+      "id": "6a04f4fd",
+      "title": "Menu4",
+      "databoard": {
+        "elements": [
+          { "id": "1", "text": "Menu4-test1" },
+          { "id": "2", "text": "Menu4-test2" },
+          { "id": "3", "text": "Menu4-test3" },
+          { "id": "4", "text": "Menu4-test4" },
+          { "id": "5", "text": "Menu4-test5" }
+        ]
+      }
+    }
   ]
 }
