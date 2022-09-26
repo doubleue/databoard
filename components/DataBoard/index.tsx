@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { IDataBoard } from "../../types/databoard";
 import { Wrapper } from "./style";
 
-const Object = dynamic(() => import("./Object"), { ssr: false });
+const Element = dynamic(() => import("./Element"), { ssr: false });
 
 const reorder = (list: any[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -43,7 +43,7 @@ export default function DataBoard({ elements }: DataBoardProps) {
         {(provided, snapshot) => (
           <Wrapper {...provided.droppableProps} ref={provided.innerRef}>
             {items.map((item, index) => (
-              <Object key={item.id} item={item} index={index} />
+              <Element key={item.id} item={item} index={index} />
             ))}
             {provided.placeholder}
           </Wrapper>
