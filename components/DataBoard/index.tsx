@@ -1,16 +1,10 @@
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
+import { IDataBoard } from "../../types/databoard";
 import { Wrapper } from "./style";
 
 const Object = dynamic(() => import("./Object"), { ssr: false });
-
-const Items = [
-  { id: "1", text: "test1" },
-  { id: "2", text: "test2" },
-  { id: "3", text: "test3" },
-  { id: "4", text: "test4" },
-];
 
 const reorder = (list: any[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
@@ -20,8 +14,14 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
   return result;
 };
 
-export default function DataBoard() {
-  const [items, setItems] = useState(Items);
+interface DataBoardProps extends IDataBoard {}
+
+export default function DataBoard({ elements }: DataBoardProps) {
+  const [items, setItems] = useState(elements);
+
+  useEffect(() => {
+    setItems(elements);
+  }, [elements]);
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) {
