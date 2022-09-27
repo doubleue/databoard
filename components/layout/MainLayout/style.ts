@@ -5,15 +5,16 @@ const Body = styled.div`
   gap: 1rem;
   grid-template-areas: "sidebar main";
   grid-template-columns: minmax(0, 240px) minmax(0, 2fr);
+  margin: 16px;
 `;
 
 const TitleWrapper = styled.div`
-  margin: 0px 0px 24px 0px;
+  margin: 16px 0px 16px 8px;
 `;
 
 const TitleText = styled.a`
   font-size: ${({ theme }) => theme.fontSize.xl};
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 const SideBarWrapper = styled.nav`

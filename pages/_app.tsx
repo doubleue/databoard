@@ -12,8 +12,8 @@ function _app({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>DataBoard</title>
       </Head>
-      <GlobalStyle />
       <ThemeProvider theme={lightTheme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

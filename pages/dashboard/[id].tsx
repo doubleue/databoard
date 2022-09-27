@@ -12,8 +12,7 @@ interface DashboardProps extends ISideBarItem {}
 const Dashboard: NextPage<any> = ({ id, title, databoard }: DashboardProps) => {
   return (
     <MainLayout title={title} seoTitle={title}>
-      {title}
-      <DataBoard elements={databoard.elements} />
+      {databoard ? <DataBoard elements={databoard.elements} /> : null}
     </MainLayout>
   );
 };
