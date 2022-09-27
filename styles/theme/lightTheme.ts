@@ -14,7 +14,7 @@ const lightTheme: DefaultTheme = {
     background: {
       main: "#F1F3F5",
       card1: "#FFFEFE",
-      card2: "#FAFAFA",
+      card2: "#F6F6F6",
     },
     icon: {
       active: "#2D2F36",
