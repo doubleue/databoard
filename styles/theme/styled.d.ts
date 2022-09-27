@@ -9,5 +9,26 @@ declare module "styled-components" {
       lg: string;
       xl: string;
     };
+    color: {
+      signature: {
+        main: string;
+      };
+      font: {
+        main: string;
+        sub: string;
+      };
+      background: {
+        main: string;
+        card1: string;
+        card2: string;
+      };
+      icon: {
+        active: string;
+        inactive: string;
+      };
+      button: {
+        main: string;
+      };
+    };
   }
 }
