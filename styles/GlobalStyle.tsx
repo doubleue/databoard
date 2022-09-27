@@ -7,13 +7,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    color: ${({ theme }) => theme.color.font.main};
   }
 
   html {
     font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
     font-display: fallback;
     height: 100%;
-    background-color:${({ theme }) => theme.color.background.main} ;
+    background-color:${({ theme }) => theme.color.background.main};
   }
 
   body{
