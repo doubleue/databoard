@@ -5,6 +5,7 @@ const Body = styled.div`
   gap: 1rem;
   grid-template-areas: "sidebar main";
   grid-template-columns: minmax(0, 240px) minmax(0, 2fr);
+  margin: 16px;
 `;
 
 const TitleWrapper = styled.div`

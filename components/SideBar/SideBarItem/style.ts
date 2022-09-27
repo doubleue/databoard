@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.button`
-  padding: 16px 8px;
+  padding: 16px;
   cursor: pointer;
   display: block;
   width: 100%;
@@ -9,6 +9,7 @@ const Wrapper = styled.button`
 
   :hover {
     background-color: ${({ theme }) => theme.color.background.card2};
+    border-radius: ${({ theme }) => theme.borderRadius.button.base};
   }
 `;
 
