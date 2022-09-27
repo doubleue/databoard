@@ -2,6 +2,21 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    borderRadius: {
+      card: {
+        xs: string;
+        sm: string;
+        base: string;
+        lg: string;
+      };
+      button: {
+        sm: string;
+        base: string;
+      };
+      icon: {
+        base: string;
+      };
+    };
     fontSize: {
       xs: string;
       sm: string;
