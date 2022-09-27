@@ -9,7 +9,7 @@ const Body = styled.div`
 `;
 
 const TitleWrapper = styled.div`
-  margin: 0px 0px 24px 0px;
+  margin: 16px 0px 16px 8px;
 `;
 
 const TitleText = styled.a`
