@@ -8,7 +8,7 @@ const Wrapper = styled.button`
   text-align: left;
 
   :hover {
-    background-color: #c8c8c8;
+    background-color: ${({ theme }) => theme.color.background.card2};
   }
 `;
 
