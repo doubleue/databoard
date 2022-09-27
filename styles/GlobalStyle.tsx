@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   *{
     margin: 0;
     padding:0;
@@ -11,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
     font-display: fallback;
     height: 100%;
+    background-color:${({ theme }) => theme.color.background.main} ;
   }
 
   body{
