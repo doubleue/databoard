@@ -26,7 +26,7 @@ const SideBarWrapper = styled.nav`
   max-height: var(--max-height);
   top: var(--offset);
   width: 100%;
-  --offset: 0rem;
+  --offset: 1rem;
   --max-height: calc(100vh - var(--offset));
 `;
 
@@ -40,7 +40,7 @@ const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-left: 8px;
+  margin: 8px 0px 8px 8px;
 `;
 const SLogo = styled.div`
   fill: ${({ theme }) => theme.color.icon.inactive};
