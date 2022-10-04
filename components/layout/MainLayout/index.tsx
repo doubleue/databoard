@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import SideBar from "../../SideBar";
 import {
   Body,
   DashboardWrapper,
@@ -13,6 +12,9 @@ import {
 } from "./style";
 
 import Logo from "../../../icons/Logo.svg";
+import dynamic from "next/dynamic";
+
+const SideBar = dynamic(() => import("../../SideBar"), { ssr: false });
 
 interface MainLayoutProps {
   title?: string;

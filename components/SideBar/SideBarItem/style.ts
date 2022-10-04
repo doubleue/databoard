@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.button`
+const Wrapper = styled.div`
   padding: 16px;
   cursor: pointer;
   display: block;
