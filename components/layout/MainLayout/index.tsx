@@ -1,13 +1,20 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import SideBar from "../../SideBar";
 import {
   Body,
   DashboardWrapper,
+  LogoText,
+  LogoWrapper,
   SideBarWrapper,
+  SLogo,
   TitleText,
   TitleWrapper,
 } from "./style";
+
+import Logo from "../../../icons/Logo.svg";
+import dynamic from "next/dynamic";
+
+const SideMenu = dynamic(() => import("../../SideMenu"), { ssr: false });
 
 interface MainLayoutProps {
   title?: string;
@@ -27,7 +34,13 @@ export default function MainLayout({
       </Head>
       <Body>
         <SideBarWrapper>
-          <SideBar />
+          <LogoWrapper>
+            <SLogo>
+              <Logo />
+            </SLogo>
+            <LogoText>DataBoard</LogoText>
+          </LogoWrapper>
+          <SideMenu />
         </SideBarWrapper>
         <DashboardWrapper>
           {title ? (

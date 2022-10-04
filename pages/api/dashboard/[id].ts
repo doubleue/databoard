@@ -1,22 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { ISideBarItem } from "../../../types/side-bar";
+import { ISideMenuItem } from "../../../types/side-menu";
 import path from "path";
 import { promises as fs } from "fs";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ISideBarItem>
+  res: NextApiResponse<ISideMenuItem>
 ) {
   const { id } = req.query;
 
   const jsonDirectory = path.join(process.cwd(), "data");
 
   const fileContents = await fs.readFile(
-    jsonDirectory + "/sidebar.json",
+    jsonDirectory + "/side-menu.json",
     "utf8"
   );
 
-  const { menus } = JSON.parse(fileContents);
-  const sideBarItem = menus.find((item: ISideBarItem) => item.id == id);
-  res.status(200).json(sideBarItem);
+  const { sideMenu } = JSON.parse(fileContents);
+  const sideMenuItem = sideMenu.find((item: ISideMenuItem) => item.id == id);
+  res.status(200).json(sideMenuItem);
 }
