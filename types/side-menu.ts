@@ -1,11 +1,11 @@
 import { IDataBoard } from "./databoard";
 
-export interface ISideBarItem {
+export interface ISideMenuItem {
   id: string;
   title: string;
   databoard?: IDataBoard;
 }
 
-export interface IMenu {
-  menus: ISideBarItem[];
+export interface ISideMenu {
+  sideMenu: ISideMenuItem[];
 }

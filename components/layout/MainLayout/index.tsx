@@ -14,7 +14,7 @@ import {
 import Logo from "../../../icons/Logo.svg";
 import dynamic from "next/dynamic";
 
-const SideBar = dynamic(() => import("../../SideBar"), { ssr: false });
+const SideMenu = dynamic(() => import("../../SideMenu"), { ssr: false });
 
 interface MainLayoutProps {
   title?: string;
@@ -40,7 +40,7 @@ export default function MainLayout({
             </SLogo>
             <LogoText>DataBoard</LogoText>
           </LogoWrapper>
-          <SideBar />
+          <SideMenu />
         </SideBarWrapper>
         <DashboardWrapper>
           {title ? (

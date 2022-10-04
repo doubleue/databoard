@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Draggable } from "react-beautiful-dnd";
-import { ISideBarItem } from "../../../types/side-bar";
+import { ISideMenuItem } from "../../../types/side-menu";
 import { Wrapper, Text } from "./style";
 
-interface SideBarItemProps extends ISideBarItem {
+interface SideMenuItemProps extends ISideMenuItem {
   index: number;
 }
 
-export default function SideBar({ id, title, index }: SideBarItemProps) {
+export default function SideMenuItem({ id, title, index }: SideMenuItemProps) {
   return (
     <Draggable key={id} draggableId={id} index={index}>
       {(provided, snapshot) => (

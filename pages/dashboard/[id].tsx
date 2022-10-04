@@ -2,15 +2,15 @@ import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import DataBoardLayout from "../../components/DataBoardLayout";
 import MainLayout from "../../components/layout/MainLayout";
-import { ISideBarItem } from "../../types/side-bar";
+import { ISideMenuItem } from "../../types/side-menu";
 
 const DataBoard = dynamic(() => import("../../components/DataBoard"), {
   ssr: false,
 });
 
-interface DashboardProps extends ISideBarItem {}
+interface DashboardProps extends ISideMenuItem {}
 
-const Dashboard: NextPage<any> = ({ id, title, databoard }: DashboardProps) => {
+const Dashboard: NextPage<any> = ({ title, databoard }: DashboardProps) => {
   return (
     <MainLayout title={title} seoTitle={title}>
       {databoard ? <DataBoard elements={databoard.elements} /> : null}

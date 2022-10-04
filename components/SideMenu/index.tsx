@@ -1,13 +1,13 @@
 import useSWR from "swr";
 
-import { IMenu, ISideBarItem } from "../../types/side-bar";
+import { ISideMenu, ISideMenuItem } from "../../types/side-menu";
 import { AddButton, ButtonWrapper, Wrapper } from "./style";
 import Add from "../../icons/Add.svg";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-const SideBarItem = dynamic(() => import("./SideBarItem"), { ssr: false });
+const SideMenuItem = dynamic(() => import("./SideMenuItem"), { ssr: false });
 
 const fetcher = (url: RequestInfo | URL) =>
   fetch(url).then((res) => res.json());
@@ -20,20 +20,22 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
   return result;
 };
 
-export default function SideBar() {
-  const { data, error } = useSWR<IMenu>("/api/sidebar", fetcher);
-  const [menus, setMenus] = useState<ISideBarItem[] | undefined>([]);
+export default function SideMenu() {
+  const { data, error } = useSWR<ISideMenu>("/api/side-menu", fetcher);
+  const [sideMenu, setSideMenu] = useState<ISideMenuItem[] | undefined>([]);
 
   useEffect(() => {
-    setMenus(data?.menus);
+    setSideMenu(data?.sideMenu);
   }, [data]);
 
   const onDragEnd = (result: DropResult) => {
-    if (!result.destination || menus === undefined) {
+    if (!result.destination || sideMenu === undefined) {
       return;
     }
 
-    setMenus(reorder(menus, result.source.index, result.destination.index));
+    setSideMenu(
+      reorder(sideMenu, result.source.index, result.destination.index)
+    );
   };
 
   return (
@@ -51,9 +53,9 @@ export default function SideBar() {
         <Droppable droppableId="SideMenu">
           {(provided, snapshot) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              {menus
-                ? menus.map((item, index) => (
-                    <SideBarItem
+              {sideMenu
+                ? sideMenu.map((item, index) => (
+                    <SideMenuItem
                       key={item.id}
                       id={item.id}
                       title={item.title}
