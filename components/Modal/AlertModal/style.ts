@@ -4,9 +4,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 300px;
+  width: 400px;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 450px) {
     min-width: 0px;
     max-width: calc(100vw - 40px - 2rem);
   }
