@@ -16,9 +16,6 @@ const Body = styled.div`
   top: 50%;
   left: 50%;
   margin: auto;
-  padding: 20px;
-  border-radius: ${({ theme }) => theme.borderRadius.card.xs};
-  background-color: ${({ theme }) => theme.color.background.card1};
   z-index: 101;
 `;
 

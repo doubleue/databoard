@@ -6,9 +6,13 @@ const Wrapper = styled.div`
   gap: 20px;
   width: 400px;
 
-  @media only screen and (max-width: 450px) {
+  padding: 20px;
+  border-radius: ${({ theme }) => theme.borderRadius.card.xs};
+  background-color: ${({ theme }) => theme.color.background.card1};
+
+  @media only screen and (max-width: calc(400px + 2rem)) {
     min-width: 0px;
-    max-width: calc(100vw - 40px - 2rem);
+    max-width: calc(100vw - 2rem);
   }
 `;
 
