@@ -35,6 +35,7 @@ const DashboardWrapper = styled.main`
 `;
 
 const LogoWrapper = styled.div`
+  cursor: pointer;
   height: 40px;
   position: relative;
   display: flex;

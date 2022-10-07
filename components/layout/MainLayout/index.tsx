@@ -13,6 +13,7 @@ import {
 
 import Logo from "../../../icons/Logo.svg";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const SideMenu = dynamic(() => import("../../SideMenu"), { ssr: false });
 
@@ -34,12 +35,14 @@ export default function MainLayout({
       </Head>
       <Body>
         <SideBarWrapper>
-          <LogoWrapper>
-            <SLogo>
-              <Logo />
-            </SLogo>
-            <LogoText>DataBoard</LogoText>
-          </LogoWrapper>
+          <Link href={"/"}>
+            <LogoWrapper>
+              <SLogo>
+                <Logo />
+              </SLogo>
+              <LogoText>DataBoard</LogoText>
+            </LogoWrapper>
+          </Link>
           <SideMenu />
         </SideBarWrapper>
         <DashboardWrapper>
