@@ -1,4 +1,5 @@
 import useModal from "../../../hooks/useModal";
+import { Button, MessageWrapper, Wrapper } from "./style";
 
 export interface AlertModalProps {
   message: string;
@@ -15,13 +16,6 @@ export default function AlertModal({
 }: AlertModalProps) {
   const { hideModal } = useModal();
 
-  // const onClose = () => {
-  //   if (handleClose) {
-  //     handleClose();
-  //   }
-  //   hideModal();
-  // };
-
   const onConfirm = async () => {
     if (handleConfirm) {
       await handleConfirm();
@@ -30,9 +24,9 @@ export default function AlertModal({
   };
 
   return (
-    <>
-      <p>{message}</p>
-      <button onClick={onConfirm}>{confirmText}</button>
-    </>
+    <Wrapper>
+      <MessageWrapper>{message}</MessageWrapper>
+      <Button onClick={onConfirm}>{confirmText}</Button>
+    </Wrapper>
   );
 }
