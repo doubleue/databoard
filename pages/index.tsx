@@ -7,16 +7,29 @@ const Home: NextPage = () => {
 
   const handleClickAlertModal = () => {
     openModal({
-      modalType: "AlertModal",
+      modalType: "Alert",
       modalProps: {
         message: "Success!",
       },
     });
   };
+
+  const handleClickTwoButtonModal = () => {
+    openModal({
+      modalType: "TwoButton",
+      modalProps: {
+        message: "Success!",
+      },
+    });
+  };
+
   return (
     <MainLayout title="Home" seoTitle="Home">
       Home
-      <button onClick={handleClickAlertModal}>Alert Modal</button>
+      <div>
+        <button onClick={handleClickAlertModal}>Alert Modal</button>
+        <button onClick={handleClickTwoButtonModal}>TwoButton Modal</button>
+      </div>
     </MainLayout>
   );
 };

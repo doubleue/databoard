@@ -1,15 +1,20 @@
 import { useRecoilState } from "recoil";
 import useModal from "../../hooks/useModal";
 import { modalState } from "../../recoil/modal";
-import AlertModal from "./AlertModal";
+
 import { Body, Fade } from "./style";
 
+import AlertModal from "./AlertModal";
+import TwoButtonModal from "./TwoButtonModal";
+
 export const MODAL_TYPES = {
-  AlertModal: "AlertModal",
+  Alert: "Alert",
+  TwoButton: "TwoButton",
 } as const;
 
 const MODAL_COMPONENTS: any = {
-  [MODAL_TYPES.AlertModal]: AlertModal,
+  [MODAL_TYPES.Alert]: AlertModal,
+  [MODAL_TYPES.TwoButton]: TwoButtonModal,
 };
 
 export default function Modal() {
@@ -20,16 +25,14 @@ export default function Modal() {
     if (!modalType) {
       return null;
     }
-    const ModalComponent = MODAL_COMPONENTS[modalType];
+    const Component = MODAL_COMPONENTS[modalType];
 
     return (
-      <>
-        <Fade onClick={closeModal}>
-          <Body onClick={(e) => e.stopPropagation()}>
-            <ModalComponent {...modalProps} />
-          </Body>
-        </Fade>
-      </>
+      <Fade onClick={closeModal}>
+        <Body onClick={(e) => e.stopPropagation()}>
+          <Component {...modalProps} />
+        </Body>
+      </Fade>
     );
   };
 
