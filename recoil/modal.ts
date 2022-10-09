@@ -3,17 +3,17 @@ import { MODAL_TYPES } from "../components/Modal";
 import { AlertModalProps } from "../components/Modal/AlertModal";
 import { TwoButtonProps } from "../components/Modal/TwoButtonModal";
 
-export interface AlertModalType {
+interface IAlertModal {
   modalType: typeof MODAL_TYPES.Alert;
   modalProps: AlertModalProps;
 }
 
-export interface TwoButtonModalType {
+interface ITwoButtonModal {
   modalType: typeof MODAL_TYPES.TwoButton;
   modalProps: TwoButtonProps;
 }
 
-export type ModalType = AlertModalType | TwoButtonModalType;
+export type ModalType = IAlertModal | ITwoButtonModal;
 
 export const modalState = atom<ModalType | null>({
   key: "modalState",
