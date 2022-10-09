@@ -14,7 +14,7 @@ const MODAL_COMPONENTS: any = {
 
 export default function Modal() {
   const { modalType, modalProps } = useRecoilState(modalState)[0] || {};
-  const { hideModal } = useModal();
+  const { closeModal } = useModal();
 
   const renderComponent = () => {
     if (!modalType) {
@@ -24,7 +24,7 @@ export default function Modal() {
 
     return (
       <>
-        <Fade onClick={hideModal}>
+        <Fade onClick={closeModal}>
           <Body onClick={(e) => e.stopPropagation()}>
             <ModalComponent {...modalProps} />
           </Body>

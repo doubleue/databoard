@@ -4,18 +4,18 @@ import { ModalType, modalState } from "../recoil/modal";
 export default function useModal() {
   const [modal, setModal] = useRecoilState(modalState);
 
-  const showModal = ({ modalType, modalProps }: ModalType) => {
+  const openModal = ({ modalType, modalProps }: ModalType) => {
     setModal({ modalType, modalProps });
   };
 
-  const hideModal = () => {
+  const closeModal = () => {
     setModal(null);
   };
 
   return {
     modal,
     setModal,
-    showModal,
-    hideModal,
+    openModal,
+    closeModal,
   };
 }

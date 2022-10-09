@@ -14,13 +14,13 @@ export default function AlertModal({
   handleClose,
   handleConfirm,
 }: AlertModalProps) {
-  const { hideModal } = useModal();
+  const { closeModal } = useModal();
 
   const onConfirm = async () => {
     if (handleConfirm) {
       await handleConfirm();
     }
-    hideModal();
+    closeModal();
   };
 
   return (

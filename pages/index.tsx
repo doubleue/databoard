@@ -3,10 +3,10 @@ import MainLayout from "../components/layout/MainLayout";
 import useModal from "../hooks/useModal";
 
 const Home: NextPage = () => {
-  const { showModal } = useModal();
+  const { openModal } = useModal();
 
   const handleClickAlertModal = () => {
-    showModal({
+    openModal({
       modalType: "AlertModal",
       modalProps: {
         message: "Success!",
