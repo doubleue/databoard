@@ -4,14 +4,12 @@ import { Button, MessageWrapper, Wrapper } from "./style";
 export interface AlertModalProps {
   message: string;
   confirmText?: string;
-  handleClose?: (...arg: any[]) => any;
   handleConfirm?: (...arg: any[]) => any;
 }
 
 export default function AlertModal({
   message,
   confirmText = "확인",
-  handleClose,
   handleConfirm,
 }: AlertModalProps) {
   const { closeModal } = useModal();
