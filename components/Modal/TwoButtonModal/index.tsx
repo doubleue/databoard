@@ -10,6 +10,7 @@ import {
 export interface TwoButtonProps {
   message: string;
   confirmText?: string;
+  closeText?: string;
   handleConfirm?: (...arg: any[]) => any;
   handleClose?: (...arg: any[]) => any;
 }
@@ -17,6 +18,7 @@ export interface TwoButtonProps {
 export default function TwoButtonModal({
   message,
   confirmText = "확인",
+  closeText = "닫기",
   handleConfirm,
   handleClose,
 }: TwoButtonProps) {
@@ -41,7 +43,7 @@ export default function TwoButtonModal({
       <MessageWrapper>{message}</MessageWrapper>
       <ButtonWrapper>
         <ConfirmButton onClick={onConfirm}>{confirmText}</ConfirmButton>
-        <CancelButton onClick={onCancel}>취소</CancelButton>
+        <CancelButton onClick={onCancel}>{closeText}</CancelButton>
       </ButtonWrapper>
     </Wrapper>
   );
