@@ -3,20 +3,33 @@ import MainLayout from "../components/layout/MainLayout";
 import useModal from "../hooks/useModal";
 
 const Home: NextPage = () => {
-  const { showModal } = useModal();
+  const { openModal } = useModal();
 
   const handleClickAlertModal = () => {
-    showModal({
-      modalType: "AlertModal",
+    openModal({
+      modalType: "Alert",
       modalProps: {
         message: "Success!",
       },
     });
   };
+
+  const handleClickTwoButtonModal = () => {
+    openModal({
+      modalType: "TwoButton",
+      modalProps: {
+        message: "Success!",
+      },
+    });
+  };
+
   return (
     <MainLayout title="Home" seoTitle="Home">
       Home
-      <button onClick={handleClickAlertModal}>Alert Modal</button>
+      <div>
+        <button onClick={handleClickAlertModal}>Alert Modal</button>
+        <button onClick={handleClickTwoButtonModal}>TwoButton Modal</button>
+      </div>
     </MainLayout>
   );
 };
