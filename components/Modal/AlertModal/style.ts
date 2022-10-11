@@ -21,14 +21,4 @@ const MessageWrapper = styled.div`
   overflow-wrap: break-word;
 `;
 
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  color: white;
-  border-radius: ${({ theme }) => theme.borderRadius.button.sm};
-  background-color: ${({ theme }) => theme.color.signature.main};
-  :hover {
-    opacity: 0.8;
-  }
-`;
-
-export { Button, MessageWrapper, Wrapper };
+export { MessageWrapper, Wrapper };
