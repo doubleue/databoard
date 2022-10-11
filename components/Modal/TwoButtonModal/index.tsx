@@ -1,11 +1,6 @@
 import useModal from "../../../hooks/useModal";
-import {
-  ButtonWrapper,
-  CancelButton,
-  ConfirmButton,
-  MessageWrapper,
-  Wrapper,
-} from "./style";
+import Button from "../../Button";
+import { ButtonWrapper, MessageWrapper, Wrapper } from "./style";
 
 export interface TwoButtonProps {
   message: string;
@@ -42,8 +37,10 @@ export default function TwoButtonModal({
     <Wrapper>
       <MessageWrapper>{message}</MessageWrapper>
       <ButtonWrapper>
-        <ConfirmButton onClick={onConfirm}>{confirmText}</ConfirmButton>
-        <CancelButton onClick={onCancel}>{closeText}</CancelButton>
+        <Button onClick={onConfirm}>{confirmText}</Button>
+        <Button onClick={onCancel} variant="text">
+          {closeText}
+        </Button>
       </ButtonWrapper>
     </Wrapper>
   );

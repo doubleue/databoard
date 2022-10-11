@@ -1,5 +1,6 @@
 import useModal from "../../../hooks/useModal";
-import { Button, MessageWrapper, Wrapper } from "./style";
+import Button from "../../Button";
+import { MessageWrapper, Wrapper } from "./style";
 
 export interface AlertModalProps {
   message: string;

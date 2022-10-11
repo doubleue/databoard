@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Button from "../components/Button";
 import MainLayout from "../components/layout/MainLayout";
 import useModal from "../hooks/useModal";
 
@@ -25,10 +26,11 @@ const Home: NextPage = () => {
 
   return (
     <MainLayout title="Home" seoTitle="Home">
-      Home
       <div>
-        <button onClick={handleClickAlertModal}>Alert Modal</button>
-        <button onClick={handleClickTwoButtonModal}>TwoButton Modal</button>
+        <Button onClick={handleClickAlertModal}>Alert Modal</Button>
+        <br />
+        <br />
+        <Button onClick={handleClickTwoButtonModal}>TwoButton Modal</Button>
       </div>
     </MainLayout>
   );

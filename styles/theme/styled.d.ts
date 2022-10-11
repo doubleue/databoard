@@ -27,6 +27,7 @@ declare module "styled-components" {
     color: {
       signature: {
         main: string;
+        error: string;
       };
       font: {
         main: string;
