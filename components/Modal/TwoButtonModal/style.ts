@@ -24,25 +24,9 @@ const MessageWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   column-gap: 0.5rem;
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  border-radius: ${({ theme }) => theme.borderRadius.button.sm};
-  flex-grow: 1;
-  :hover {
-    opacity: 0.8;
+  * {
+    flex-grow: 1;
   }
 `;
 
-const ConfirmButton = styled(Button)`
-  color: white;
-  background-color: ${({ theme }) => theme.color.signature.main};
-`;
-
-const CancelButton = styled(Button)`
-  color: ${({ theme }) => theme.color.signature.main};
-  /* background-color: ${({ theme }) => theme.color.signature.main}; */
-`;
-
-export { MessageWrapper, Wrapper, ButtonWrapper, ConfirmButton, CancelButton };
+export { MessageWrapper, Wrapper, ButtonWrapper };
