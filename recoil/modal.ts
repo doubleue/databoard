@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { v1 } from "uuid";
 import { MODAL_TYPES } from "../components/Modal";
 import { AlertModalProps } from "../components/Modal/AlertModal";
 import { TwoButtonProps } from "../components/Modal/TwoButtonModal";
@@ -16,6 +17,6 @@ interface ITwoButtonModal {
 export type ModalType = IAlertModal | ITwoButtonModal;
 
 export const modalState = atom<ModalType | null>({
-  key: "modalState",
+  key: `modalState/${v1()}`,
   default: null,
 });
