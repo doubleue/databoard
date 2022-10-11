@@ -6,6 +6,7 @@ const lightTheme: DefaultTheme = {
   color: {
     signature: {
       main: "#0075F4",
+      error: "#D84E5F",
     },
     font: {
       main: "#2D2F36",

@@ -6,6 +6,7 @@ const darkTheme: DefaultTheme = {
   color: {
     signature: {
       main: "#3283F7",
+      error: "#F86A75",
     },
     font: {
       main: "#FDFDFE",
