@@ -35,7 +35,7 @@ const SideMenuWrapper = styled.div<{ isHide: boolean }>`
 
 const SideBarWrapper = styled.nav<{ isHide: boolean }>`
   grid-area: sidebar;
-  z-index: 200;
+  z-index: 90;
   display: flex;
   flex-direction: column;
   ${(props) => {
