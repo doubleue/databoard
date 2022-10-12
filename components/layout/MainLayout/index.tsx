@@ -34,15 +34,15 @@ export default function MainLayout({
         <title>{`${seoTitle} | DataBoard`}</title>
       </Head>
       <Body>
+        <Link href={"/"}>
+          <LogoWrapper>
+            <SLogo>
+              <Logo />
+            </SLogo>
+            <LogoText>DataBoard</LogoText>
+          </LogoWrapper>
+        </Link>
         <SideBarWrapper>
-          <Link href={"/"}>
-            <LogoWrapper>
-              <SLogo>
-                <Logo />
-              </SLogo>
-              <LogoText>DataBoard</LogoText>
-            </LogoWrapper>
-          </Link>
           <SideMenu />
         </SideBarWrapper>
         <DashboardWrapper>

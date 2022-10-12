@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 const Body = styled.div`
   display: grid;
-  gap: 1rem;
-  grid-template-areas: "sidebar main";
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  grid-template-areas: "logo header" "sidebar main";
   grid-template-columns: minmax(0, 240px) minmax(0, 2fr);
   margin: 16px;
 `;
 
 const TitleWrapper = styled.div`
-  margin: 16px 0px 16px 8px;
+  margin: 8px 0px 16px 0px;
 `;
 
 const TitleText = styled.a`
@@ -35,13 +36,14 @@ const DashboardWrapper = styled.main`
 `;
 
 const LogoWrapper = styled.div`
+  grid-area: logo;
   cursor: pointer;
   height: 40px;
   position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
-  margin: 8px 0px 8px 8px;
+  margin: 0px 0px 0px 8px;
 `;
 const SLogo = styled.div`
   fill: ${({ theme }) => theme.color.icon.inactive};
