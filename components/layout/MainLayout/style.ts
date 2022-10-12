@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Body = styled.div`
   display: grid;
   column-gap: 1rem;
   row-gap: 0.5rem;
-  grid-template-areas: "logo header" "sidebar main";
+  grid-template-areas:
+    "logo header"
+    "sidebar main";
   grid-template-columns: minmax(0, 240px) minmax(0, 2fr);
   margin: 16px;
+  position: relative;
 `;
 
 const TitleWrapper = styled.div`
@@ -18,21 +21,53 @@ const TitleText = styled.a`
   font-weight: bold;
 `;
 
-const SideBarWrapper = styled.nav`
-  grid-area: sidebar;
-  display: flex;
-  overflow: auto;
-  position: sticky;
-  flex-direction: column;
-  max-height: var(--max-height);
-  top: var(--offset);
-  width: 100%;
-  --offset: 1rem;
-  --max-height: calc(100vh - var(--offset));
+const SideMenuWrapper = styled.div<{ isHide: boolean }>`
+  ${(props) => {
+    if (props.isHide) {
+      return css`
+        position: sticky;
+        height: auto;
+        top: 1rem;
+      `;
+    }
+  }}
 `;
 
-const DashboardWrapper = styled.main`
-  grid-area: main;
+const SideBarWrapper = styled.nav<{ isHide: boolean }>`
+  grid-area: sidebar;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  ${(props) => {
+    if (props.isHide) {
+      return css`
+        position: absolute;
+        height: 100%;
+        width: 240px;
+      `;
+    } else {
+      return css`
+        overflow: auto;
+        position: sticky;
+        height: calc(100vh - 1rem);
+        top: 1rem;
+        width: 100%;
+      `;
+    }
+  }}
+`;
+
+const DashboardWrapper = styled.main<{ isHide: boolean }>`
+  ${(props) => {
+    if (props.isHide)
+      return css`
+        grid-column: 1 / 3;
+      `;
+    else
+      return css`
+        grid-area: main;
+      `;
+  }}
 `;
 
 const LogoWrapper = styled.div`
@@ -68,4 +103,5 @@ export {
   LogoWrapper,
   SLogo,
   LogoText,
+  SideMenuWrapper,
 };
