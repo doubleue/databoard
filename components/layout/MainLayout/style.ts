@@ -1,13 +1,16 @@
 import styled, { css } from "styled-components";
 
-const Body = styled.div`
+const Header = styled.div`
+  margin: 16px;
   display: grid;
   column-gap: 1rem;
-  row-gap: 0.5rem;
-  grid-template-areas:
-    "logo header"
-    "sidebar main";
-  grid-template-columns: minmax(0, 240px) minmax(0, 2fr);
+  grid-template-areas: "logo header";
+`;
+
+const Body = styled.div`
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: min-content minmax(0, 2fr);
   margin: 16px;
   position: relative;
 `;
@@ -21,13 +24,26 @@ const TitleText = styled.a`
   font-weight: bold;
 `;
 
-const SideMenuWrapper = styled.div<{ isHide: boolean }>`
+const SideMenuWrapper = styled.div`
+  width: 240px;
+  position: sticky;
+  height: auto;
+  top: 1rem;
+`;
+
+const EmptySideBarSpace = styled.div<{ isHide: boolean }>`
+  grid-area: sidebar;
+  transition: 0.3s;
   ${(props) => {
     if (props.isHide) {
       return css`
-        position: sticky;
-        height: auto;
-        top: 1rem;
+        width: 0px;
+        margin-right: 0;
+      `;
+    } else {
+      return css`
+        width: 240px;
+        margin-right: 1rem;
       `;
     }
   }}
@@ -35,39 +51,31 @@ const SideMenuWrapper = styled.div<{ isHide: boolean }>`
 
 const SideBarWrapper = styled.nav<{ isHide: boolean }>`
   grid-area: sidebar;
+  flex-direction: column;
   z-index: 90;
   display: flex;
-  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  transition: 0.3s;
   ${(props) => {
     if (props.isHide) {
       return css`
-        position: absolute;
-        height: 100%;
-        width: 240px;
+        left: -240px;
+        :hover {
+          left: -1rem;
+          padding-left: 1rem;
+        }
       `;
     } else {
       return css`
-        overflow: auto;
-        position: sticky;
-        height: calc(100vh - 1rem);
-        top: 1rem;
-        width: 100%;
+        left: 0px;
       `;
     }
   }}
 `;
 
-const DashboardWrapper = styled.main<{ isHide: boolean }>`
-  ${(props) => {
-    if (props.isHide)
-      return css`
-        grid-column: 1 / 3;
-      `;
-    else
-      return css`
-        grid-area: main;
-      `;
-  }}
+const DashboardWrapper = styled.main`
+  grid-area: main;
 `;
 
 const LogoWrapper = styled.div`
@@ -104,4 +112,6 @@ export {
   SLogo,
   LogoText,
   SideMenuWrapper,
+  EmptySideBarSpace,
+  Header,
 };

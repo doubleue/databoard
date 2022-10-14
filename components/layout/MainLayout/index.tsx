@@ -3,6 +3,8 @@ import { ReactNode, useState } from "react";
 import {
   Body,
   DashboardWrapper,
+  EmptySideBarSpace,
+  Header,
   LogoText,
   LogoWrapper,
   SideBarWrapper,
@@ -36,7 +38,7 @@ export default function MainLayout({
       <Head>
         <title>{`${seoTitle} | DataBoard`}</title>
       </Head>
-      <Body>
+      <Header>
         <Button
           variant="text"
           onClick={() => {
@@ -53,12 +55,15 @@ export default function MainLayout({
             <LogoText>DataBoard</LogoText>
           </LogoWrapper>
         </Link>
+      </Header>
+      <Body>
+        <EmptySideBarSpace isHide={isHide} />
         <SideBarWrapper isHide={isHide}>
-          <SideMenuWrapper isHide={isHide}>
+          <SideMenuWrapper>
             <SideMenu />
           </SideMenuWrapper>
         </SideBarWrapper>
-        <DashboardWrapper isHide={isHide}>
+        <DashboardWrapper>
           {title ? (
             <TitleWrapper>
               <TitleText>{title}</TitleText>
