@@ -1,11 +1,14 @@
 import Head from "next/head";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import {
   Body,
   DashboardWrapper,
+  EmptySideBarSpace,
+  Header,
   LogoText,
   LogoWrapper,
   SideBarWrapper,
+  SideMenuWrapper,
   SLogo,
   TitleText,
   TitleWrapper,
@@ -14,6 +17,9 @@ import {
 import Logo from "../../../icons/Logo.svg";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Button from "../../Button";
+import { useRecoilState } from "recoil";
+import { isOpenSideMenuState } from "../../../recoil/isOpenSideMenu";
 
 const SideMenu = dynamic(() => import("../../SideMenu"), { ssr: false });
 
@@ -28,22 +34,28 @@ export default function MainLayout({
   children,
   seoTitle,
 }: MainLayoutProps) {
+  const [isOpen] = useRecoilState(isOpenSideMenuState);
   return (
     <>
       <Head>
         <title>{`${seoTitle} | DataBoard`}</title>
       </Head>
+      <Header>
+        <Link href={"/"}>
+          <LogoWrapper>
+            <SLogo>
+              <Logo />
+            </SLogo>
+            <LogoText>DataBoard</LogoText>
+          </LogoWrapper>
+        </Link>
+      </Header>
       <Body>
-        <SideBarWrapper>
-          <Link href={"/"}>
-            <LogoWrapper>
-              <SLogo>
-                <Logo />
-              </SLogo>
-              <LogoText>DataBoard</LogoText>
-            </LogoWrapper>
-          </Link>
-          <SideMenu />
+        <EmptySideBarSpace isOpen={isOpen} />
+        <SideBarWrapper isOpen={isOpen}>
+          <SideMenuWrapper>
+            <SideMenu />
+          </SideMenuWrapper>
         </SideBarWrapper>
         <DashboardWrapper>
           {title ? (

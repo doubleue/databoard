@@ -22,9 +22,18 @@ export default function Button({
   ...bprops
 }: ButtonProps) {
   return (
-    <ButtonWrapper {...bprops} variant={variant} color={color}>
+    <ButtonWrapper
+      {...bprops}
+      variant={variant}
+      color={color}
+      isChildren={bprops.children ? true : false}
+    >
       <ContentsWrapper>
-        {icon ? <IconWrapper>{icon}</IconWrapper> : null}
+        {icon ? (
+          <IconWrapper isChildren={bprops.children ? true : false}>
+            {icon}
+          </IconWrapper>
+        ) : null}
         {bprops.children ? <TextWrapper>{bprops.children}</TextWrapper> : null}
       </ContentsWrapper>
     </ButtonWrapper>
