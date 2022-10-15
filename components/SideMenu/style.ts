@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
   padding: 12px 16px 24px 16px;
@@ -9,6 +9,19 @@ const Wrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  column-gap: 6px;
+`;
+
+const MenuOpenCloseButtonWrapper = styled.div<{ isOpen: boolean }>`
+  transition: 0.2s;
+  ${(props) =>
+    props.isOpen
+      ? css`
+          transform: rotate(0deg);
+        `
+      : css`
+          transform: rotate(-180deg);
+        `}
 `;
 
 const AddButton = styled.button`
@@ -28,4 +41,4 @@ const AddButton = styled.button`
   }
 `;
 
-export { Wrapper, ButtonWrapper, AddButton };
+export { Wrapper, ButtonWrapper, AddButton, MenuOpenCloseButtonWrapper };

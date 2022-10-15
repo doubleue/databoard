@@ -1,11 +1,20 @@
 import useSWR from "swr";
 
 import { ISideMenu, ISideMenuItem } from "../../types/side-menu";
-import { AddButton, ButtonWrapper, Wrapper } from "./style";
+import {
+  AddButton,
+  ButtonWrapper,
+  MenuOpenCloseButtonWrapper,
+  Wrapper,
+} from "./style";
 import Add from "../../icons/Add.svg";
+import DoubleArrow from "../../icons/DoubleArrow.svg";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import Button from "../Button";
+import { useRecoilState } from "recoil";
+import { isOpenSideMenuState } from "../../recoil/isOpenSideMenu";
 
 const SideMenuItem = dynamic(() => import("./SideMenuItem"), { ssr: false });
 
@@ -24,6 +33,8 @@ export default function SideMenu() {
   const { data, error } = useSWR<ISideMenu>("/api/side-menu", fetcher);
   const [sideMenu, setSideMenu] = useState<ISideMenuItem[] | undefined>([]);
 
+  const [isOpen, setIsOpen] = useRecoilState(isOpenSideMenuState);
+
   useEffect(() => {
     setSideMenu(data?.sideMenu);
   }, [data]);
@@ -41,13 +52,14 @@ export default function SideMenu() {
   return (
     <Wrapper>
       <ButtonWrapper>
-        <AddButton
-          onClick={() => {
-            console.log("Click Event");
-          }}
-        >
-          <Add />
-        </AddButton>
+        <MenuOpenCloseButtonWrapper isOpen={isOpen}>
+          <Button
+            variant="text"
+            icon={<DoubleArrow />}
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        </MenuOpenCloseButtonWrapper>
+        <Button variant="text" icon={<Add />} />
       </ButtonWrapper>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="SideMenu">

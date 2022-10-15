@@ -31,25 +31,25 @@ const SideMenuWrapper = styled.div`
   top: 1rem;
 `;
 
-const EmptySideBarSpace = styled.div<{ isHide: boolean }>`
+const EmptySideBarSpace = styled.div<{ isOpen: boolean }>`
   grid-area: sidebar;
   transition: 0.3s;
   ${(props) => {
-    if (props.isHide) {
-      return css`
-        width: 0px;
-        margin-right: 0;
-      `;
-    } else {
+    if (props.isOpen) {
       return css`
         width: 240px;
         margin-right: 1rem;
+      `;
+    } else {
+      return css`
+        width: 0px;
+        margin-right: 0;
       `;
     }
   }}
 `;
 
-const SideBarWrapper = styled.nav<{ isHide: boolean }>`
+const SideBarWrapper = styled.nav<{ isOpen: boolean }>`
   grid-area: sidebar;
   flex-direction: column;
   z-index: 90;
@@ -58,17 +58,17 @@ const SideBarWrapper = styled.nav<{ isHide: boolean }>`
   height: 100%;
   transition: 0.3s;
   ${(props) => {
-    if (props.isHide) {
+    if (props.isOpen) {
+      return css`
+        left: 0px;
+      `;
+    } else {
       return css`
         left: -240px;
         :hover {
           left: -1rem;
           padding-left: 1rem;
         }
-      `;
-    } else {
-      return css`
-        left: 0px;
       `;
     }
   }}
