@@ -4,6 +4,8 @@ const Wrapper = styled.div`
   padding: 12px 16px 24px 16px;
   background-color: ${({ theme }) => theme.color.background.card1};
   border-radius: ${({ theme }) => theme.borderRadius.card.base};
+
+  border: 1px solid ${({ theme }) => theme.color.button.main};
 `;
 
 const ButtonWrapper = styled.div`
