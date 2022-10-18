@@ -45,6 +45,9 @@ declare module "styled-components" {
       button: {
         main: string;
       };
+      border: {
+        main: string;
+      };
     };
   }
 }

@@ -22,7 +22,7 @@ const ContentsWrapper = styled.div`
 `;
 
 const TextWrapper = styled.a`
-  height: 14px;
+  font-size: ${({ theme }) => theme.fontSize.sm};
 `;
 
 const ButtonWrapper = styled.button<{

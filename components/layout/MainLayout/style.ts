@@ -90,6 +90,7 @@ const LogoWrapper = styled.div`
 `;
 const SLogo = styled.div`
   fill: ${({ theme }) => theme.color.icon.inactive};
+  fill: ${({ theme }) => theme.color.font.sub};
   display: inline-block;
   svg {
     height: 26px;
@@ -99,6 +100,7 @@ const SLogo = styled.div`
 const LogoText = styled.a`
   font-size: ${({ theme }) => theme.fontSize.xl};
   color: ${({ theme }) => theme.color.icon.inactive};
+  color: ${({ theme }) => theme.color.font.sub};
   font-weight: bold;
 `;
 

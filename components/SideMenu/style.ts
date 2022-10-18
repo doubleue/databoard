@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.background.card1};
   border-radius: ${({ theme }) => theme.borderRadius.card.base};
 
-  border: 1px solid ${({ theme }) => theme.color.button.main};
+  border: 1px solid ${({ theme }) => theme.color.border.main};
 `;
 
 const ButtonWrapper = styled.div`
