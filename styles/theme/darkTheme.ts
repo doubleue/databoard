@@ -15,7 +15,7 @@ const darkTheme: DefaultTheme = {
     background: {
       main: "#101012",
       card1: "#17171C",
-      card2: "#212027",
+      card2: "#202029",
     },
     icon: {
       active: "#FDFDFE",
