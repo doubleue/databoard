@@ -24,6 +24,9 @@ const darkTheme: DefaultTheme = {
     button: {
       main: "#2C2C35",
     },
+    border: {
+      main: "rgba(240,246,252,0.1)",
+    },
   },
 };
 

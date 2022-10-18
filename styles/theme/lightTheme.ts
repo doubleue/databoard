@@ -24,6 +24,9 @@ const lightTheme: DefaultTheme = {
     button: {
       main: "#F1F2F3",
     },
+    border: {
+      main: "rgba(27,31,36,0.15)",
+    },
   },
 };
 
