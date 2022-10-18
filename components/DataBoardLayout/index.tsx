@@ -83,14 +83,15 @@ export default function DataBoardLayout(props: DataBoardLayoutProps) {
 }
 
 const Layout = styled(ResponsiveGridLayout)`
-  background-color: ${({ theme }) => theme.color.background.card1};
   .react-grid-placeholder {
     background-color: transparent;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='black' stroke-width='3' stroke-dasharray='10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    background-color: ${({ theme }) => theme.color.border.main};
     border-radius: ${({ theme }) => theme.borderRadius.card.sm};
+    /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='14' ry='14' stroke='black' stroke-width='3' stroke-dasharray='10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"); */
   }
-  margin-bottom: 20px;
+  background-color: ${({ theme }) => theme.color.background.card1};
   border-radius: ${({ theme }) => theme.borderRadius.card.base};
+  margin-bottom: 20px;
 `;
 
 const Item = styled.div`
