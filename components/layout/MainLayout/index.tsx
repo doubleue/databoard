@@ -1,5 +1,9 @@
+import { ReactNode } from "react";
+
 import Head from "next/head";
-import { ReactNode, useState } from "react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+
 import {
   Body,
   DashboardWrapper,
@@ -15,11 +19,8 @@ import {
 } from "./style";
 
 import Logo from "../../../icons/Logo.svg";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import Button from "../../Button";
-import { useRecoilState } from "recoil";
-import { isOpenSideMenuState } from "../../../recoil/isOpenSideMenu";
+
+import useMenuOpen from "../../../hooks/useMenuOpen";
 
 const SideMenu = dynamic(() => import("../../SideMenu"), { ssr: false });
 
@@ -34,7 +35,8 @@ export default function MainLayout({
   children,
   seoTitle,
 }: MainLayoutProps) {
-  const [isOpen] = useRecoilState(isOpenSideMenuState);
+  const { isMenuOpen } = useMenuOpen();
+
   return (
     <>
       <Head>
@@ -51,8 +53,8 @@ export default function MainLayout({
         </Link>
       </Header>
       <Body>
-        <EmptySideBarSpace isOpen={isOpen} />
-        <SideBarWrapper isOpen={isOpen}>
+        <EmptySideBarSpace isOpen={isMenuOpen} />
+        <SideBarWrapper isOpen={isMenuOpen}>
           <SideMenuWrapper>
             <SideMenu />
           </SideMenuWrapper>
