@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { CookiesProvider } from "react-cookie";
 import { useMediaQuery } from "react-responsive";
 import { RecoilRoot } from "recoil";
 import { DefaultTheme, ThemeProvider } from "styled-components";
@@ -24,13 +25,15 @@ function _app({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>DataBoard</title>
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <RecoilRoot>
-          <Modal />
-          <Component {...pageProps} />
-        </RecoilRoot>
-      </ThemeProvider>
+      <CookiesProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <RecoilRoot>
+            <Modal />
+            <Component {...pageProps} />
+          </RecoilRoot>
+        </ThemeProvider>
+      </CookiesProvider>
     </>
   );
 }

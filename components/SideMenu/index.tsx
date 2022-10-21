@@ -1,20 +1,17 @@
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import useSWR from "swr";
+import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 
 import { ISideMenu, ISideMenuItem } from "../../types/side-menu";
-import {
-  AddButton,
-  ButtonWrapper,
-  MenuOpenCloseButtonWrapper,
-  Wrapper,
-} from "./style";
+
+import useMenuOpen from "../../hooks/useMenuOpen";
+
+import { ButtonWrapper, MenuOpenButtonWrapper, Wrapper } from "./style";
 import Add from "../../icons/Add.svg";
 import DoubleArrow from "../../icons/DoubleArrow.svg";
-import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+
 import Button from "../Button";
-import { useRecoilState } from "recoil";
-import { isOpenSideMenuState } from "../../recoil/isOpenSideMenu";
 
 const SideMenuItem = dynamic(() => import("./SideMenuItem"), { ssr: false });
 
@@ -32,8 +29,7 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
 export default function SideMenu() {
   const { data, error } = useSWR<ISideMenu>("/api/side-menu", fetcher);
   const [sideMenu, setSideMenu] = useState<ISideMenuItem[] | undefined>([]);
-
-  const [isOpen, setIsOpen] = useRecoilState(isOpenSideMenuState);
+  const { isMenuOpen, setIsMenuOpen } = useMenuOpen();
 
   useEffect(() => {
     setSideMenu(data?.sideMenu);
@@ -52,13 +48,13 @@ export default function SideMenu() {
   return (
     <Wrapper>
       <ButtonWrapper>
-        <MenuOpenCloseButtonWrapper isOpen={isOpen}>
+        <MenuOpenButtonWrapper isOpen={isMenuOpen}>
           <Button
             variant="text"
             icon={<DoubleArrow />}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           />
-        </MenuOpenCloseButtonWrapper>
+        </MenuOpenButtonWrapper>
         <Button variant="text" icon={<Add />} />
       </ButtonWrapper>
       <DragDropContext onDragEnd={onDragEnd}>

@@ -14,7 +14,7 @@ const ButtonWrapper = styled.div`
   column-gap: 6px;
 `;
 
-const MenuOpenCloseButtonWrapper = styled.div<{ isOpen: boolean }>`
+const MenuOpenButtonWrapper = styled.div<{ isOpen: boolean }>`
   transition: 0.2s;
   ${(props) =>
     props.isOpen
@@ -26,21 +26,4 @@ const MenuOpenCloseButtonWrapper = styled.div<{ isOpen: boolean }>`
         `}
 `;
 
-const AddButton = styled.button`
-  fill: ${({ theme }) => theme.color.icon.inactive};
-  width: 28px;
-  height: 28px;
-  padding: 4px;
-  transition: 0.2s;
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-  :hover {
-    fill: ${({ theme }) => theme.color.signature.main};
-    background-color: ${({ theme }) => theme.color.signature.main + "26"};
-    border-radius: 4px;
-  }
-`;
-
-export { Wrapper, ButtonWrapper, AddButton, MenuOpenCloseButtonWrapper };
+export { Wrapper, ButtonWrapper, MenuOpenButtonWrapper };
