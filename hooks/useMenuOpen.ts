@@ -7,7 +7,7 @@ export default function useMenuOpen() {
   const [cookies, setCookie] = useCookies(["is_menu_open"]);
 
   const handleStatusChange = (isOpen: boolean) => {
-    setCookie("is_menu_open", isOpen);
+    setCookie("is_menu_open", isOpen, { path: "/" });
   };
 
   useEffect(() => {
