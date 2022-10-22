@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const Header = styled.div`
   margin: 16px;
-  display: grid;
+  display: flex;
   column-gap: 1rem;
   grid-template-areas: "logo header";
 `;
@@ -88,8 +88,8 @@ const LogoWrapper = styled.div`
   gap: 4px;
   margin: 0px 0px 0px 8px;
 `;
+
 const SLogo = styled.div`
-  fill: ${({ theme }) => theme.color.icon.inactive};
   fill: ${({ theme }) => theme.color.font.sub};
   display: inline-block;
   svg {
@@ -97,9 +97,9 @@ const SLogo = styled.div`
     width: 26px;
   }
 `;
+
 const LogoText = styled.a`
   font-size: ${({ theme }) => theme.fontSize.xl};
-  color: ${({ theme }) => theme.color.icon.inactive};
   color: ${({ theme }) => theme.color.font.sub};
   font-weight: bold;
 `;
