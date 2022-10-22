@@ -6,6 +6,7 @@ import {
   useRef,
   useEffect,
 } from "react";
+import useAutoFocus from "../../../hooks/useAutoFocus";
 import { TitleInput } from "./style";
 
 interface SideMenuInputProps {
@@ -18,13 +19,7 @@ export default function SideMenuInput({
   onEndEdit,
 }: SideMenuInputProps) {
   const [menuTitle, setMenuTitle] = useState(modifyText ?? "");
-  const thisComponent = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (thisComponent.current) {
-      thisComponent.current.focus();
-    }
-  }, []);
+  const { inputRef } = useAutoFocus();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -49,7 +44,7 @@ export default function SideMenuInput({
 
   return (
     <TitleInput
-      ref={thisComponent}
+      ref={inputRef}
       type="text"
       placeholder="메뉴 타이틀 입력"
       value={menuTitle}
