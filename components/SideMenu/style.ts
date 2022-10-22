@@ -1,11 +1,17 @@
 import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 12px 16px 24px 16px;
+  padding: 16px 0px 24px 16px;
   background-color: ${({ theme }) => theme.color.background.card1};
   border-radius: ${({ theme }) => theme.borderRadius.card.base};
 
   border: 1px solid ${({ theme }) => theme.color.border.main};
+  max-height: calc(100vh - 2rem);
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh / 4 * 3);
 `;
 
 const ButtonWrapper = styled.div`
@@ -26,4 +32,18 @@ const MenuOpenButtonWrapper = styled.div<{ isOpen: boolean }>`
         `}
 `;
 
-export { Wrapper, ButtonWrapper, MenuOpenButtonWrapper };
+const HeaderWrapper = styled.div`
+  margin-right: 16px;
+`;
+const MenuWrapper = styled.div`
+  overflow-y: scroll;
+  padding-right: 16px;
+`;
+
+export {
+  Wrapper,
+  ButtonWrapper,
+  MenuOpenButtonWrapper,
+  HeaderWrapper,
+  MenuWrapper,
+};
